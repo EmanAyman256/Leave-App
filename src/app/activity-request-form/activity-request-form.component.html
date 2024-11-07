@@ -1,0 +1,179 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <img src="assets/form-avatar.png" class="form-avatar rounded" alt="Solex-Avatar">
+            <h3>Activity Request Form</h3>
+            <p class="fw-bold">Notes:</p>
+            <div class="WFH rounded mb-2">
+                <span class="fw-bold span-fs">WFH Request = </span>
+                <span class="span-fs">Request at least 1 day before 🏠</span>
+                <p class="mt-1 span-fs">Please assign: 
+                    <span class="fw-bold span-bg p-2 rounded span-fs">TL</span>
+                </p>
+            </div>
+            <div class="Ann-leave rounded mb-2">
+                <span class="fw-bold span-fs">Short Annual leave
+                </span>
+                <span class="span-fs">(less than 5 Days) = Request at least 2 Days before</span>
+                <div>
+                    <span class="fw-bold span-fs">Long Annual leave
+                    </span>
+                    <span class="span-fs">(5 Days or more) = Request at least 1 Month before 🏖️</span>
+                </div>
+                <p class="mt-2 span-fs">Please assign: 
+                    <span class="fw-bold span-bg p-2 rounded span-fs">TL</span> ,
+                    <span class="fw-bold span-bg2 p-2 rounded span-fs">PM</span>
+                </p>
+            </div>
+            <div class="emerg-leave rounded mb-2">
+                <span class="fw-bold span-fs">Emergency Leave = </span>
+                <span class="span-fs"> Could be on the same day 🦺</span>
+                <p class="mt-2 span-fs">Please assign: 
+                    <span class="fw-bold span-bg p-2 rounded span-fs">TL</span> ,
+                    <span class="fw-bold span-bg2 p-2 rounded span-fs">PM</span>
+                </p>
+            </div>
+            <div class="sick-leave rounded mb-2">
+                <span class="fw-bold span-fs">Sick Leave = </span>
+                <span class="span-fs">  Kindly attach the perception 😷💊</span>
+                <p class="mt-2 span-fs">Please assign: 
+                    <span class="fw-bold span-bg3 p-2 rounded span-fs">Heba Raslan</span> ,
+                    <span class="fw-bold span-bg p-2 rounded span-fs">TL</span> ,
+                    <span class="fw-bold span-bg2 p-2 rounded span-fs">PM</span>
+                </p>
+            </div>
+            <div class="Marriage-leave rounded mb-2">
+                <span class="fw-bold span-fs">Marriage Leave = </span>
+                <span class="span-fs"> Request at least 1 Month before  👰🤵‍♂️ </span>
+                <p class="mt-2 span-fs">Please assign: 
+                    <span class="fw-bold span-bg3 p-2 rounded span-fs">Heba Raslan</span> ,
+                    <span class="fw-bold span-bg p-2 rounded span-fs">TL</span> ,
+                    <span class="fw-bold span-bg2 p-2 rounded span-fs">PM</span>
+                </p>
+            </div>
+            <div class="Maternity-leave rounded mb-2">
+                <span class="fw-bold span-fs">Maternity Leave = </span>
+                <span class="span-fs"> 90 Days (45+45) 👼
+                    <p class="span-fs">Request at least 4 Months before</p>
+                </span>
+                <p class="mt-2 span-fs">Please assign: 
+                    <span class="fw-bold span-bg3 p-2 rounded span-fs">Heba Raslan</span> ,
+                    <span class="fw-bold span-bg p-2 rounded span-fs">TL</span> ,
+                    <span class="fw-bold span-bg2 p-2 rounded span-fs">PM</span>
+                </p>
+            </div>
+            <div class="BereavOmra-leave rounded mb-2">
+                <span class="fw-bold span-fs">Bereavement Leave = </span>
+                <span class="span-fs"> 
+                    <ul>
+                        <li>1 Day for second level relatives 💔</li>
+                        <li>3 Days for first level relatives 💔</li>
+                    </ul>
+                </span>
+                <p class="mt-2 span-fs">Please assign: 
+                    <span class="fw-bold span-bg p-2 rounded span-fs">TL</span> ,
+                    <span class="fw-bold span-bg2 p-2 rounded span-fs">PM</span>
+                </p>
+            </div>
+            <div class="BereavOmra-leave  rounded mb-2">
+                <span class="fw-bold span-fs">Omra and Haj Leave  = </span>
+                <span class="span-fs"> Request at least 1 Month before </span>
+                <p class="mt-2 span-fs">Please assign: 
+                    <span class="fw-bold span-bg p-2 rounded span-fs">TL</span> ,
+                    <span class="fw-bold span-bg2 p-2 rounded span-fs">PM</span>
+                </p>
+            </div>
+            <form class="mt-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="name">
+                            <span class="fw-bold span-fs">Full Name </span>
+                            <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name">
+    
+                    </div>
+                    <div class="col-md-6">
+                        <!-- <label for="requestedBy" class="form-label">
+
+                            <span class="fw-bold span-fs">Requested By </span>
+                            <span class="text-danger">*</span>
+                        </label>
+                        <div class="req text-center ms-2 cursor">
+                            <fa-icon [icon]="plusUser"></fa-icon>
+                        </div> -->
+                         <label for="requestedBy" class="form-label">
+
+                            <span class="fw-bold span-fs">Requested By </span>
+                            <span class="text-danger">*</span>
+                        </label>
+                        <div class="req text-center pt-1 ms-2  cursor" >
+                            <fa-icon [icon]="plusUser" [matMenuTriggerFor]="dropdownMenu">
+                            </fa-icon>
+                            <mat-menu #dropdownMenu="matMenu">
+                                <div style="padding: 10px; width: 200px;">
+                                  <!-- Select and Autocomplete with ng-select -->
+                                  <ng-select
+                                    [items]="items"
+                                    bindLabel="name"
+                                    bindValue="id"
+                                    [(ngModel)]="selectedItem"
+                                    [searchable]="true"
+                                    placeholder="Search and select"
+                                    [clearable]="true">
+                                  </ng-select>
+                                </div>
+                              </mat-menu>
+                                            
+                        </div>
+
+                        
+                            
+                          
+                         
+              
+                          
+                    </div>
+                </div>
+               <div class="row mt-4">
+                <div class="col-md-6">
+                    <label for="name">
+                        <span class="fw-bold span-fs"> Activity Type </span>
+                        <span class="text-danger">*</span>
+                    </label>
+                    <div class="dropdown">
+                      
+                        <input type="text" class="form-control dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false" placeholder="Choose Activity Type...">
+                        <ul class="dropdown-menu p-2">
+                          <li><button class="dropdown-item rounded text-white WFH-bg text-center mb-2  span-fs" type="button">WFH Request</button></li>
+                          <li><button class="dropdown-item  rounded text-white ex-WFH-bg text-center mb-2   span-fs" type="button">Extra WFH Request</button></li>
+                          <li><button class="dropdown-item  rounded  border text-center mb-2   span-fs" type="button">Customer Visit</button></li>
+                          <li><button class="dropdown-item  rounded text-white em-bg text-center mb-2   span-fs" type="button">Emergency Leave</button></li>
+                          <li><button class="dropdown-item  rounded  sic-bg text-center mb-2   span-fs" type="button">Sick Leave</button></li>
+                          <li><button class="dropdown-item  rounded text-white mar-bg text-center mb-2   span-fs" type="button">Marriage Leave</button></li>
+                          <li><button class="dropdown-item  rounded text-white mat-bg text-center mb-2   span-fs" type="button">Maternity Leave</button></li>
+                          <li><button class="dropdown-item  rounded text-white bg-black text-center mb-2   span-fs" type="button">Bereavement Leave</button></li>
+                          <li><button class="dropdown-item  rounded text-white omra-bg text-center mb-2   span-fs" type="button">Omra Leave</button></li>
+                          <li><button class="dropdown-item  rounded text-white omra-bg text-center mb-2   span-fs" type="button">Haj Leave</button></li>
+
+
+                        </ul>
+                    </div>
+               
+                </div>
+                <div class="col-md-6">
+                    <label for="name">
+                        <span class="fw-bold span-fs"> Duration </span>
+                        <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" name="" id="" class="form-control" placeholder="Enter Number">
+
+                </div>
+               </div>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>

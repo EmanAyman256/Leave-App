@@ -1,0 +1,98 @@
+/* .form-avatar{
+    width: 12%;
+    height: 20%;
+    margin-bottom: 5px;
+} */
+.WFH{
+    background-color: #F2F1FE;
+    padding: 10px;
+}
+ .span-fs{
+    font-size: 14px;
+}
+.span-bg{
+    background-color: #E4E9FF;
+}
+.span-bg2{
+    background-color: #DCF2E2;
+}
+.span-bg3
+{
+    background-color: #FCE5EF;
+}
+.Ann-leave{
+    background-color: #ECF6FD;
+    padding: 10px;
+
+}
+.emerg-leave{
+    background-color: #FDF3EC;
+    padding: 10px;
+}
+.sick-leave{
+    background-color: #FEF9EB;
+    padding: 10px;
+}
+.Marriage-leave{
+    background-color: #EBF5F0;
+    padding: 10px;
+}
+.Maternity-leave{
+    background-color: #FEF2F7 ;
+    padding: 10px;
+}
+.BereavOmra-leave
+{
+    background-color: #F7F8F9 ;
+    padding: 10px;
+
+}
+.req{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(197, 192, 192);
+}
+.cursor{
+    cursor: pointer;
+}
+.user-option {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    font-weight: bold;
+  }
+  .WFH-bg{
+    background-color: #9B59B6;
+  }
+  .ex-WFH-bg{
+    background-color: #81B1FF;
+  }
+  .ann-bg{
+    background-color: #3082B7;
+  }
+  .em-bg{
+    background-color: #FF7800;
+  }
+  .sic-bg{
+    background-color: #F9D900;
+  }
+  .mar-bg{
+    background-color: #1BBC9C;
+  }
+  .mat-bg{
+    background-color: #FF7FAB;
+  }
+  .omra-bg{
+    background-color: #667684;
+  }
