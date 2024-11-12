@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'primeng/calendar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,10 +13,12 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { MatChipsModule } from '@angular/material/chips';
 import { AsyncPipe, NgFor } from '@angular/common';
 import {MatSelectModule} from '@angular/material/select';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+
 
 
 @NgModule({
@@ -30,15 +33,19 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FormsModule,
     FontAwesomeModule,
     MatIconModule,
+    InputTextareaModule,
     MatAutocompleteModule,
     MatFormFieldModule,
-    MatInputModule,
     MatMenuModule,
     NgFor,
     MatSelectModule,
+    CalendarModule,
     NgSelectModule,
     BrowserAnimationsModule,
     AsyncPipe,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatChipsModule,
   
   ],
   providers: [],

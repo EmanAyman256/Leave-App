@@ -1,6 +1,6 @@
-<div class="container mt-5">
+<div class="container mt-5 p-3">
     <div class="row">
-        <div class="col-md-6 offset-3">
+        <div class="col-md-6 offset-md-3">
             <img src="assets/form-avatar.png" class="form-avatar rounded" alt="Solex-Avatar">
             <h3>Activity Request Form</h3>
             <p class="fw-bold">Notes:</p>
@@ -94,38 +94,26 @@
     
                     </div>
                     <div class="col-md-6">
-                        <!-- <label for="requestedBy" class="form-label">
-
-                            <span class="fw-bold span-fs">Requested By </span>
+                        
+                        <label for="req">
+                            <span class="fw-bold span-fs">Requested by</span>
                             <span class="text-danger">*</span>
                         </label>
-                        <div class="req text-center ms-2 cursor">
-                            <fa-icon [icon]="plusUser"></fa-icon>
-                        </div> -->
-                         <label for="requestedBy" class="form-label">
-
-                            <span class="fw-bold span-fs">Requested By </span>
-                            <span class="text-danger">*</span>
-                        </label>
-                        <div class="req text-center pt-1 ms-2  cursor" >
-                            <fa-icon [icon]="plusUser" [matMenuTriggerFor]="dropdownMenu">
-                            </fa-icon>
-                            <mat-menu #dropdownMenu="matMenu">
-                                <div style="padding: 10px; width: 200px;">
-                                  <!-- Select and Autocomplete with ng-select -->
-                                  <ng-select
-                                    [items]="items"
-                                    bindLabel="name"
-                                    bindValue="id"
-                                    [(ngModel)]="selectedItem"
-                                    [searchable]="true"
-                                    placeholder="Search and select"
-                                    [clearable]="true">
-                                  </ng-select>
-                                </div>
-                              </mat-menu>
-                                            
-                        </div>
+                           <input
+                              type="text"
+                              placeholder="Search or enter email..."
+                              class="form-control"
+                              [formControl]="myControl"
+                              [matAutocomplete]="auto"
+                            />
+                            <mat-autocomplete #auto="matAutocomplete">
+                              <mat-option *ngFor="let user of filteredUsers | async" [value]="user.name">
+                                <mat-chip-listbox>
+                                    {{ user.name }}
+                                </mat-chip-listbox>
+                              </mat-option>
+                            </mat-autocomplete>
+                          
 
                         
                             
@@ -170,6 +158,124 @@
 
                 </div>
                </div>
+               <div class="row mt-4">
+                <div class="col-md-6">
+
+                    <label for="start">
+                        <span class="fw-bold span-fs"> Start Date </span>
+                        <span class="text-danger">*</span>
+                    </label>
+                    <div>
+                        <p-calendar placeholder="Select Start Date ..."/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="end">
+                        <span class="fw-bold span-fs"> Due Date </span>
+                        <span class="text-danger">*</span>
+                    </label>
+                    <div>
+                        <p-calendar placeholder="Select Due Date ..."/>
+                    </div>
+                </div>
+                </div> 
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <label for="req">
+                            <span class="fw-bold span-fs">Modules</span>
+                            <span class="text-danger">*</span>
+                        </label>
+                           <input
+                              type="text"
+                              placeholder="Select Option..."
+                              class="form-control"
+                              formControlName="myControl"
+                              [matAutocomplete]="autoCom"
+                            />
+                            <mat-autocomplete #autoCom="matAutocomplete">
+                              <mat-option>
+                                <mat-chip-listbox>
+                                    option 1..
+                                </mat-chip-listbox>   
+                              </mat-option>
+                              <mat-option>
+                                <mat-chip-listbox>
+                                    option 2..
+                                </mat-chip-listbox>
+                              </mat-option>
+                              <mat-option>
+                                <mat-chip-listbox>
+                                    option 3..
+                                </mat-chip-listbox>
+                              </mat-option>
+                            </mat-autocomplete>
+                          
+                    </div>
+                    <div class="col-md-6">
+                        <label for="req">
+                            <span class="fw-bold span-fs">Add approvers (PM's,TL's)</span>
+                            <span class="text-danger">*</span>
+                        </label>
+                           <input
+                              type="text"
+                              placeholder="Search or enter email..."
+                              class="form-control"
+                              [formControl]="myControl"
+                              [matAutocomplete]="auto"
+                            />
+                            <mat-autocomplete #auto="matAutocomplete">
+                              <mat-option *ngFor="let user of filteredUsers | async" [value]="user.name">
+                                <mat-chip-listbox>
+                                    {{ user.name }}
+                                </mat-chip-listbox>
+                              </mat-option>
+                            </mat-autocomplete>
+                          
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <label for="tasks">
+                            <span class="fw-bold span-fs">Tasks delegated while out of office to</span>
+                        </label>
+                           <input
+                              type="text"
+                              placeholder="Search or enter email..."
+                              class="form-control"
+                              [formControl]="myControl"
+                              [matAutocomplete]="auto"
+                            />
+                            <mat-autocomplete #auto="matAutocomplete">
+                              <mat-option *ngFor="let user of filteredUsers | async" [value]="user.name">
+                                <mat-chip-listbox>
+                                    {{ user.name }}
+                                </mat-chip-listbox>
+                              </mat-option>
+                            </mat-autocomplete>
+                          
+                    </div>
+                    <div class="col-md-6">
+                        <label for="tasks">
+                            <span class="fw-bold span-fs">Attachment when sick leave requested</span>
+                        </label>
+                    <input class="form-control" type="file" id="formFile">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <label for="tasks">
+                        <span class="fw-bold span-fs">Add notes if needed</span>
+                    </label>
+                    <textarea 
+                    rows="3"
+                     pInputTextarea 
+                     placeholder="Enter Text">
+                    </textarea>                
+            </div>
+            <div class="row mt-4">
+                <button type="button" class="btn btn-primary d-flex justify-content-center">Submit</button>
+
+
+            </div>
             </form>
         </div>
 
