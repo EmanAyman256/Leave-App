@@ -27,6 +27,9 @@ users: User[] = [
 
   
 ];
+options: string[] = ['One', 'Two', 'Three'];
+delUsers:string[] =['u1','u2','u3']
+approver:string[]=["PM1","TL2","PM2"]
 selectedDate:Date|null=null;
 filteredUsers!: Observable<User[]>;
 

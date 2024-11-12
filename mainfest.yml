@@ -1,0 +1,7 @@
+applications:
+- name: activity-request-app
+  instances: 1
+  memory: 1G
+  buildpacks:
+    - staticfile_buildpack
+  path: /dist/leave-app  

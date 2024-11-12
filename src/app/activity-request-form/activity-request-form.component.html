@@ -113,15 +113,7 @@
                                 </mat-chip-listbox>
                               </mat-option>
                             </mat-autocomplete>
-                          
-
-                        
-                            
-                          
-                         
-              
-                          
-                    </div>
+                   </div>
                 </div>
                <div class="row mt-4">
                 <div class="col-md-6">
@@ -129,9 +121,8 @@
                         <span class="fw-bold span-fs"> Activity Type </span>
                         <span class="text-danger">*</span>
                     </label>
-                    <div class="dropdown">
-                      
-                        <input type="text" class="form-control dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false" placeholder="Choose Activity Type...">
+                    <div class="dropdown">                 
+                        <input type="text" class="form-control dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="true" placeholder="Choose Activity Type...">
                         <ul class="dropdown-menu p-2">
                           <li><button class="dropdown-item rounded text-white WFH-bg text-center mb-2  span-fs" type="button">WFH Request</button></li>
                           <li><button class="dropdown-item  rounded text-white ex-WFH-bg text-center mb-2   span-fs" type="button">Extra WFH Request</button></li>
@@ -143,11 +134,46 @@
                           <li><button class="dropdown-item  rounded text-white bg-black text-center mb-2   span-fs" type="button">Bereavement Leave</button></li>
                           <li><button class="dropdown-item  rounded text-white omra-bg text-center mb-2   span-fs" type="button">Omra Leave</button></li>
                           <li><button class="dropdown-item  rounded text-white omra-bg text-center mb-2   span-fs" type="button">Haj Leave</button></li>
-
-
                         </ul>
                     </div>
-               
+                    <!-- <input
+                    type="text"
+                    placeholder="Choose Activity Type..."
+                    class="form-control"
+                    [formControl]="myControl"
+                    [matAutocomplete]="autoAct"
+                  /> -->
+                  <!-- <div class="d-flex justify-content-center ">
+                      <mat-autocomplete #autoAct="matAutocomplete">
+                        <mat-option >
+                          <mat-chip-listbox>
+                            <button class="btn w-100 d-flex justify-content-center align-items-center rounded text-white WFH-bg text-center mb-2  span-fs" type="button">WFH Request</button>
+                          </mat-chip-listbox>
+                        </mat-option>
+                        <mat-option >
+                            <mat-chip-listbox>
+                                <button class="btn w-100 rounded text-white ex-WFH-bg text-center mb-2 span-fs" type="button">Extra WFH Request</button>
+                            </mat-chip-listbox>
+                          </mat-option>
+                          <mat-option >
+                            <mat-chip-listbox>
+                              <button class="btn w-100 rounded  border text-center mb-2 span-fs" type="button">Customer Visit</button>
+                            </mat-chip-listbox>
+                          </mat-option>
+                          <mat-option >
+                            <mat-chip-listbox>
+                                <button class="btn w-100 rounded text-white em-bg text-center mb-2 span-fs" type="button">Extra WFH Request</button>
+                            </mat-chip-listbox>
+                          </mat-option>
+                          <mat-option >
+                            <mat-chip-listbox>
+                                <button class="btn w-100 rounded text-white ex-WFH-bg text-center mb-2 span-fs" type="button">Extra WFH Request</button>
+                            </mat-chip-listbox>
+                          </mat-option>
+                        
+                      </mat-autocomplete>
+
+                  </div> -->         
                 </div>
                 <div class="col-md-6">
                     <label for="name">
@@ -185,30 +211,20 @@
                             <span class="fw-bold span-fs">Modules</span>
                             <span class="text-danger">*</span>
                         </label>
-                           <input
-                              type="text"
-                              placeholder="Select Option..."
-                              class="form-control"
-                              formControlName="myControl"
-                              [matAutocomplete]="autoCom"
-                            />
-                            <mat-autocomplete #autoCom="matAutocomplete">
-                              <mat-option>
-                                <mat-chip-listbox>
-                                    option 1..
-                                </mat-chip-listbox>   
-                              </mat-option>
-                              <mat-option>
-                                <mat-chip-listbox>
-                                    option 2..
-                                </mat-chip-listbox>
-                              </mat-option>
-                              <mat-option>
-                                <mat-chip-listbox>
-                                    option 3..
-                                </mat-chip-listbox>
-                              </mat-option>
-                            </mat-autocomplete>
+                        <input
+                        type="text"
+                        placeholder="Search or enter email..."
+                        class="form-control"
+                        [formControl]="myControl"
+                        [matAutocomplete]="automod"
+                      />
+                      <mat-autocomplete #automod="matAutocomplete">
+                        <mat-option *ngFor="let option of options " [value]="option">
+                          <mat-chip-listbox>
+                              {{ option }}
+                          </mat-chip-listbox>
+                        </mat-option>
+                      </mat-autocomplete>
                           
                     </div>
                     <div class="col-md-6">
@@ -216,21 +232,20 @@
                             <span class="fw-bold span-fs">Add approvers (PM's,TL's)</span>
                             <span class="text-danger">*</span>
                         </label>
-                           <input
-                              type="text"
-                              placeholder="Search or enter email..."
-                              class="form-control"
-                              [formControl]="myControl"
-                              [matAutocomplete]="auto"
-                            />
-                            <mat-autocomplete #auto="matAutocomplete">
-                              <mat-option *ngFor="let user of filteredUsers | async" [value]="user.name">
-                                <mat-chip-listbox>
-                                    {{ user.name }}
-                                </mat-chip-listbox>
-                              </mat-option>
-                            </mat-autocomplete>
-                          
+                        <input
+                        type="text"
+                        placeholder="Search or enter email..."
+                        class="form-control"
+                        [formControl]="myControl"
+                        [matAutocomplete]="autoapp"
+                      />
+                      <mat-autocomplete #autoapp="matAutocomplete">
+                        <mat-option *ngFor="let approver of approver " [value]="approver">
+                          <mat-chip-listbox>
+                              {{ approver }}
+                          </mat-chip-listbox>
+                        </mat-option>
+                      </mat-autocomplete>
                     </div>
                 </div>
                 <div class="row mt-4">
@@ -243,12 +258,12 @@
                               placeholder="Search or enter email..."
                               class="form-control"
                               [formControl]="myControl"
-                              [matAutocomplete]="auto"
+                              [matAutocomplete]="autoTask"
                             />
-                            <mat-autocomplete #auto="matAutocomplete">
-                              <mat-option *ngFor="let user of filteredUsers | async" [value]="user.name">
+                            <mat-autocomplete #autoTask="matAutocomplete">
+                              <mat-option *ngFor="let users of delUsers " [value]="users">
                                 <mat-chip-listbox>
-                                    {{ user.name }}
+                                    {{ users }}
                                 </mat-chip-listbox>
                               </mat-option>
                             </mat-autocomplete>
@@ -263,23 +278,18 @@
                 </div>
                 <div class="row mt-4">
                     <label for="tasks">
-                        <span class="fw-bold span-fs">Add notes if needed</span>
+                        <span class="fw-bold span-fs mb-3">Add notes if needed</span>
                     </label>
                     <textarea 
-                    rows="3"
-                     pInputTextarea 
-                     placeholder="Enter Text">
+                     rows="3"
+                     class="form-control"
+                     placeholder="EnterText">
                     </textarea>                
             </div>
             <div class="row mt-4">
                 <button type="button" class="btn btn-primary d-flex justify-content-center">Submit</button>
-
-
             </div>
             </form>
         </div>
-
     </div>
-
-
 </div>
