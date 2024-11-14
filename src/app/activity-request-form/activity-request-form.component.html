@@ -83,18 +83,16 @@
                     <span class="fw-bold span-bg2 p-2 rounded span-fs">PM</span>
                 </p>
             </div>
-            <form class="mt-5">
+            <form class="mt-5" [formGroup]="appForm" (ngSubmit)="onSubmit()">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3 ">
                         <label for="name">
                             <span class="fw-bold span-fs">Full Name </span>
                             <span class="text-danger">*</span>
                         </label>
-                        <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name">
-    
+                        <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name" formControlName="fullName">
                     </div>
-                    <div class="col-md-6">
-                        
+                    <div class="col-md-6 ">
                         <label for="req">
                             <span class="fw-bold span-fs">Requested by</span>
                             <span class="text-danger">*</span>
@@ -103,8 +101,8 @@
                               type="text"
                               placeholder="Search or enter email..."
                               class="form-control"
-                              [formControl]="myControl"
                               [matAutocomplete]="auto"
+                              formControlName="reqBy"
                             />
                             <mat-autocomplete #auto="matAutocomplete">
                               <mat-option *ngFor="let user of filteredUsers | async" [value]="user.name">
@@ -116,13 +114,13 @@
                    </div>
                 </div>
                <div class="row mt-4">
-                <div class="col-md-6">
-                    <label for="name">
-                        <span class="fw-bold span-fs"> Activity Type </span>
+                <div class="col-md-6 mb-3">
+                    <label for="Activity">
+                        <span class="fw-bold span-fs">Activity Type </span>
                         <span class="text-danger">*</span>
                     </label>
                     <div class="dropdown">                 
-                        <input type="text" class="form-control dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="true" placeholder="Choose Activity Type...">
+                        <input formControlName="activityType" type="text" class="form-control dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="true" placeholder="Choose Activity Type...">
                         <ul class="dropdown-menu p-2">
                           <li><button class="dropdown-item rounded text-white WFH-bg text-center mb-2  span-fs" type="button">WFH Request</button></li>
                           <li><button class="dropdown-item  rounded text-white ex-WFH-bg text-center mb-2   span-fs" type="button">Extra WFH Request</button></li>
@@ -180,19 +178,19 @@
                         <span class="fw-bold span-fs"> Duration </span>
                         <span class="text-danger">*</span>
                     </label>
-                    <input type="text" name="" id="" class="form-control" placeholder="Enter Number">
+                    <input formControlName="duration" type="text" name="" id="" class="form-control" placeholder="Enter Number">
 
                 </div>
                </div>
                <div class="row mt-4">
-                <div class="col-md-6">
+                <div class="col-md-6 mb-3">
 
                     <label for="start">
                         <span class="fw-bold span-fs"> Start Date </span>
                         <span class="text-danger">*</span>
                     </label>
                     <div>
-                        <p-calendar placeholder="Select Start Date ..."/>
+                        <p-calendar placeholder="Select Start Date ... " formControlName="startDate"/>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -201,18 +199,19 @@
                         <span class="text-danger">*</span>
                     </label>
                     <div>
-                        <p-calendar placeholder="Select Due Date ..."/>
+                        <p-calendar formControlName="endDate" placeholder="Select Due Date ..."/>
                     </div>
                 </div>
                 </div> 
                 <div class="row mt-4">
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3">
                         <label for="req">
                             <span class="fw-bold span-fs">Modules</span>
                             <span class="text-danger">*</span>
                         </label>
                         <input
                         type="text"
+                        formControlName="module"
                         placeholder="Search or enter email..."
                         class="form-control"
                         [formControl]="myControl"
@@ -237,6 +236,7 @@
                         placeholder="Search or enter email..."
                         class="form-control"
                         [formControl]="myControl"
+                        formControlName="approvers"
                         [matAutocomplete]="autoapp"
                       />
                       <mat-autocomplete #autoapp="matAutocomplete">
@@ -249,7 +249,7 @@
                     </div>
                 </div>
                 <div class="row mt-4">
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3">
                         <label for="tasks">
                             <span class="fw-bold span-fs">Tasks delegated while out of office to</span>
                         </label>
@@ -273,21 +273,18 @@
                         <label for="tasks">
                             <span class="fw-bold span-fs">Attachment when sick leave requested</span>
                         </label>
-                    <input class="form-control" type="file" id="formFile">
+                    <input class="form-control" type="file" id="formFile" formControlName="attachSickLeave">
                     </div>
                 </div>
                 <div class="row mt-4">
                     <label for="tasks">
                         <span class="fw-bold span-fs mb-3">Add notes if needed</span>
                     </label>
-                    <textarea 
-                     rows="3"
-                     class="form-control"
-                     placeholder="EnterText">
-                    </textarea>                
+                    <textarea pInputTextarea placeholder="Enter Text" class="ms-2 mt-2" formControlName="notes"></textarea>
+             
             </div>
             <div class="row mt-4">
-                <button type="button" class="btn btn-primary d-flex justify-content-center">Submit</button>
+                <button type="submit" class="btn btn-primary d-flex justify-content-center">Submit</button>
             </div>
             </form>
         </div>
