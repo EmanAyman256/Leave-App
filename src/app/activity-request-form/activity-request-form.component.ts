@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import {faUserPlus} from '@fortawesome/free-solid-svg-icons'
+import { MessageService } from 'primeng/api';
 import { map, Observable, startWith } from 'rxjs';
 interface User {
   name: string;
@@ -10,7 +11,8 @@ interface User {
 @Component({
   selector: 'app-activity-request-form',
   templateUrl: './activity-request-form.component.html',
-  styleUrls: ['./activity-request-form.component.css']
+  styleUrls: ['./activity-request-form.component.css'],
+  providers:[MessageService]
 })
 export class ActivityRequestFormComponent{
  plusUser=faUserPlus
@@ -46,10 +48,20 @@ appForm=new FormGroup({
   attachSickLeave:new FormControl(null),
   notes:new FormControl('')
 })
+constructor(private messageService: MessageService) {}
 
 onSubmit()
 {
-console.log(this.appForm);
+  if(this.appForm.valid)
+  {
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Request is Sent Successfully' });
+    this.appForm.reset()
+  }
+  else
+  {
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Request is Failed to Sent' });
+
+  }
 }
 
 
