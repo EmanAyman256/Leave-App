@@ -18,7 +18,6 @@ import { AsyncPipe, NgFor } from '@angular/common';
 import {MatSelectModule} from '@angular/material/select';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { ErrorTempComponent } from './shared/error-temp/error-temp.component';
 import { ToastModule } from 'primeng/toast';
 
 
@@ -27,7 +26,6 @@ import { ToastModule } from 'primeng/toast';
   declarations: [
     AppComponent,
     ActivityRequestFormComponent,
-    ErrorTempComponent,
   ],
   imports: [
     BrowserModule,
