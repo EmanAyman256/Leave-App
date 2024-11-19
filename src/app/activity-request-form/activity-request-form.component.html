@@ -91,6 +91,7 @@
                             <span class="text-danger">*</span>
                         </label>
                         <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name" formControlName="fullName">
+                        <p class="error" *ngIf="appForm.get('fullName')?.invalid && appForm.controls.fullName.touched">Full Name is Required</p>
                     </div>
                     <div class="col-md-6 ">
                         <label for="req">
@@ -104,14 +105,18 @@
                               [matAutocomplete]="auto"
                               formControlName="reqBy"
                             />
+                            <p class="error" *ngIf="appForm.get('reqBy')?.invalid && appForm.get('reqBy')?.touched">Please Select Yourself</p>
+
                             <mat-autocomplete #auto="matAutocomplete">
-                              <mat-option *ngFor="let user of filteredUsers | async" [value]="user.name">
+                              <mat-option *ngFor="let user of users " [value]="user.name">
                                 <mat-chip-listbox>
                                     {{ user.name }}
                                 </mat-chip-listbox>
                               </mat-option>
                             </mat-autocomplete>
-                   </div>
+                        </div>
+
+
                 </div>
                <div class="row mt-4">
                 <div class="col-md-6 mb-3">
@@ -119,7 +124,7 @@
                         <span class="fw-bold span-fs">Activity Type </span>
                         <span class="text-danger">*</span>
                     </label>
-                    <div class="dropdown">                 
+                    <!-- <div class="dropdown">                 
                         <input formControlName="activityType" type="text" class="form-control dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="true" placeholder="Choose Activity Type...">
                         <ul class="dropdown-menu p-2">
                           <li><button class="dropdown-item rounded text-white WFH-bg text-center mb-2  span-fs" type="button">WFH Request</button></li>
@@ -133,52 +138,36 @@
                           <li><button class="dropdown-item  rounded text-white omra-bg text-center mb-2   span-fs" type="button">Omra Leave</button></li>
                           <li><button class="dropdown-item  rounded text-white omra-bg text-center mb-2   span-fs" type="button">Haj Leave</button></li>
                         </ul>
-                    </div>
-                    <!-- <input
+                    </div> -->
+                    <input
                     type="text"
                     placeholder="Choose Activity Type..."
                     class="form-control"
-                    [formControl]="myControl"
                     [matAutocomplete]="autoAct"
-                  /> -->
-                  <!-- <div class="d-flex justify-content-center ">
+                    formControlName="activityType"
+                  />
+                  <p class="error" *ngIf="appForm.get('activityType')?.invalid && appForm.get('activityType')?.touched">Please Select Activity Type</p>
+
+                   <div class="d-flex justify-content-center ">
                       <mat-autocomplete #autoAct="matAutocomplete">
-                        <mat-option >
+                        <mat-option *ngFor="let activity of activities" [value]="activity">
                           <mat-chip-listbox>
-                            <button class="btn w-100 d-flex justify-content-center align-items-center rounded text-white WFH-bg text-center mb-2  span-fs" type="button">WFH Request</button>
+                            {{activity}}
                           </mat-chip-listbox>
                         </mat-option>
-                        <mat-option >
-                            <mat-chip-listbox>
-                                <button class="btn w-100 rounded text-white ex-WFH-bg text-center mb-2 span-fs" type="button">Extra WFH Request</button>
-                            </mat-chip-listbox>
-                          </mat-option>
-                          <mat-option >
-                            <mat-chip-listbox>
-                              <button class="btn w-100 rounded  border text-center mb-2 span-fs" type="button">Customer Visit</button>
-                            </mat-chip-listbox>
-                          </mat-option>
-                          <mat-option >
-                            <mat-chip-listbox>
-                                <button class="btn w-100 rounded text-white em-bg text-center mb-2 span-fs" type="button">Extra WFH Request</button>
-                            </mat-chip-listbox>
-                          </mat-option>
-                          <mat-option >
-                            <mat-chip-listbox>
-                                <button class="btn w-100 rounded text-white ex-WFH-bg text-center mb-2 span-fs" type="button">Extra WFH Request</button>
-                            </mat-chip-listbox>
-                          </mat-option>
-                        
                       </mat-autocomplete>
+                    </div>
+                            
 
-                  </div> -->         
+                        
                 </div>
                 <div class="col-md-6">
                     <label for="name">
-                        <span class="fw-bold span-fs"> Duration </span>
+                        <span class="fw-bold span-fs"> Duration (Days) </span>
                         <span class="text-danger">*</span>
                     </label>
                     <input formControlName="duration" type="text" name="" id="" class="form-control" placeholder="Enter Number">
+                    <p class="error" *ngIf="appForm.get('duration')?.invalid && appForm.get('duration')?.touched">Please enter number of days</p>
 
                 </div>
                </div>
@@ -190,8 +179,10 @@
                         <span class="text-danger">*</span>
                     </label>
                     <div>
-                        <p-calendar placeholder="Select Start Date ... " formControlName="startDate"/>
+                        <p-calendar placeholder="Select Start Date ... " formControlName="startDate"[dateFormat]="'dd/mm/yy'" />
                     </div>
+                    <p class="error" *ngIf="appForm.get('startDate')?.invalid && appForm.get('startDate')?.touched">Please Enter The Start Date</p>
+
                 </div>
                 <div class="col-md-6">
                     <label for="end">
@@ -199,8 +190,10 @@
                         <span class="text-danger">*</span>
                     </label>
                     <div>
-                        <p-calendar formControlName="endDate" placeholder="Select Due Date ..."/>
+                        <p-calendar formControlName="endDate" placeholder="Select Due Date ..." [dateFormat]="'dd/mm/yy'"/>
                     </div>
+                    <p class="error" *ngIf="appForm.get('endDate')?.invalid && appForm.get('endDate')?.touched ">Please Enter The End Date</p>
+
                 </div>
                 </div> 
                 <div class="row mt-4">
@@ -214,9 +207,10 @@
                         formControlName="module"
                         placeholder="Search or enter email..."
                         class="form-control"
-                        [formControl]="myControl"
                         [matAutocomplete]="automod"
                       />
+                      <p class="error" *ngIf="appForm.get('module')?.invalid && appForm.get('module')?.touched">Please Select module</p>
+
                       <mat-autocomplete #automod="matAutocomplete">
                         <mat-option *ngFor="let option of options " [value]="option">
                           <mat-chip-listbox>
@@ -235,10 +229,11 @@
                         type="text"
                         placeholder="Search or enter email..."
                         class="form-control"
-                        [formControl]="myControl"
                         formControlName="approvers"
                         [matAutocomplete]="autoapp"
                       />
+                      <p class="error" *ngIf="appForm.get('approvers')?.invalid && appForm.get('approvers')?.touched">Please Select approvers</p>
+
                       <mat-autocomplete #autoapp="matAutocomplete">
                         <mat-option *ngFor="let approver of approver " [value]="approver">
                           <mat-chip-listbox>
@@ -257,8 +252,9 @@
                               type="text"
                               placeholder="Search or enter email..."
                               class="form-control"
-                              [formControl]="myControl"
+                              formControlName="taskDele"
                               [matAutocomplete]="autoTask"
+                            
                             />
                             <mat-autocomplete #autoTask="matAutocomplete">
                               <mat-option *ngFor="let users of delUsers " [value]="users">

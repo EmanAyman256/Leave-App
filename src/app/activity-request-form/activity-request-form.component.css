@@ -96,3 +96,9 @@
   .omra-bg{
     background-color: #667684;
   }
+  .error{
+    color: #8f0e0e;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 5px;
+  }
