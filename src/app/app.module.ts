@@ -19,6 +19,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToastModule } from 'primeng/toast';
+import { ActivityDesriptionComponent } from './activity-desription/activity-desription.component';
 
 
 
@@ -26,6 +27,7 @@ import { ToastModule } from 'primeng/toast';
   declarations: [
     AppComponent,
     ActivityRequestFormComponent,
+    ActivityDesriptionComponent,
   ],
   imports: [
     BrowserModule,
