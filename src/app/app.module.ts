@@ -20,6 +20,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToastModule } from 'primeng/toast';
 import { ActivityDesriptionComponent } from './activity-desription/activity-desription.component';
+import { Datepicker } from 'flowbite';
 
 
 
@@ -50,9 +51,10 @@ import { ActivityDesriptionComponent } from './activity-desription/activity-desr
     MatAutocompleteModule,
     MatInputModule,
     MatChipsModule,
-  
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule  {
+
+ }

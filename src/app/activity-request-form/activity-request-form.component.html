@@ -1,4 +1,4 @@
-<div class="container mt-1 p-3">
+<div class="container mt-1 p-2">
     <p-toast/>
     <div class="row">
         <div class="col-md-6 offset-md-3">
@@ -6,21 +6,21 @@
                 <div class="row">
                     <div class="col-md-6 mb-3 ">
                         <label for="name">
-                            <span class="fw-bold span-fs">Full Name </span>
+                            <span class=" mb-2 text-sm font-medium text-gray-900">Full Name </span>
                             <span class="text-danger">*</span>
                         </label>
-                        <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name" formControlName="fullName">
+                        <input type="text" name="" id="name" class="bg-slate-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Enter Full Name" formControlName="fullName">
                         <p class="error" *ngIf="appForm.get('fullName')?.invalid && appForm.controls.fullName.touched">Full Name is Required</p>
                     </div>
                     <div class="col-md-6 ">
                         <label for="req">
-                            <span class="fw-bold span-fs">Requested by</span>
-                            <span class="text-danger">*</span>
+                            <span class="mb-2 text-sm font-medium text-gray-900">Requested by</span>
+                            <span class="text-red-700">*</span>
                         </label>
                            <input
                               type="text"
                               placeholder="Search or enter email..."
-                              class="form-control"
+                              class="bg-slate-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                               [matAutocomplete]="auto"
                               formControlName="reqBy"
                             />
@@ -40,28 +40,13 @@
                <div class="row mt-4">
                 <div class="col-md-6 mb-3">
                     <label for="Activity">
-                        <span class="fw-bold span-fs">Activity Type </span>
-                        <span class="text-danger">*</span>
+                        <span class="mb-2 text-sm font-medium text-gray-900">Activity Type </span>
+                        <span class="text-red-700">*</span>
                     </label>
-                    <!-- <div class="dropdown">                 
-                        <input formControlName="activityType" type="text" class="form-control dropdown-toggle" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="true" placeholder="Choose Activity Type...">
-                        <ul class="dropdown-menu p-2">
-                          <li><button class="dropdown-item rounded text-white WFH-bg text-center mb-2  span-fs" type="button">WFH Request</button></li>
-                          <li><button class="dropdown-item  rounded text-white ex-WFH-bg text-center mb-2   span-fs" type="button">Extra WFH Request</button></li>
-                          <li><button class="dropdown-item  rounded  border text-center mb-2   span-fs" type="button">Customer Visit</button></li>
-                          <li><button class="dropdown-item  rounded text-white em-bg text-center mb-2   span-fs" type="button">Emergency Leave</button></li>
-                          <li><button class="dropdown-item  rounded  sic-bg text-center mb-2   span-fs" type="button">Sick Leave</button></li>
-                          <li><button class="dropdown-item  rounded text-white mar-bg text-center mb-2   span-fs" type="button">Marriage Leave</button></li>
-                          <li><button class="dropdown-item  rounded text-white mat-bg text-center mb-2   span-fs" type="button">Maternity Leave</button></li>
-                          <li><button class="dropdown-item  rounded text-white bg-black text-center mb-2   span-fs" type="button">Bereavement Leave</button></li>
-                          <li><button class="dropdown-item  rounded text-white omra-bg text-center mb-2   span-fs" type="button">Omra Leave</button></li>
-                          <li><button class="dropdown-item  rounded text-white omra-bg text-center mb-2   span-fs" type="button">Haj Leave</button></li>
-                        </ul>
-                    </div> -->
                     <input
                     type="text"
                     placeholder="Choose Activity Type..."
-                    class="form-control"
+                    class="bg-slate-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
                     [matAutocomplete]="autoAct"
                     formControlName="activityType"
                   />
@@ -76,16 +61,17 @@
                         </mat-option>
                       </mat-autocomplete>
                     </div>
-                            
-
                         
                 </div>
                 <div class="col-md-6">
                     <label for="name">
-                        <span class="fw-bold span-fs"> Duration (Days) </span>
-                        <span class="text-danger">*</span>
+                        <span class="mb-2 text-sm font-medium text-gray-900"> Duration (Days) </span>
+                        <span class="text-red-700">*</span>
                     </label>
-                    <input formControlName="duration" type="text" name="" id="" class="form-control" placeholder="Enter Number">
+                    <input formControlName="duration" type="text" name="" 
+                    id="" 
+                    class="bg-slate-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                    placeholder="Enter Number">
                     <p class="error" *ngIf="appForm.get('duration')?.invalid && appForm.get('duration')?.touched">Please enter number of days</p>
 
                 </div>
@@ -97,9 +83,14 @@
                         <span class="fw-bold span-fs"> Start Date </span>
                         <span class="text-danger">*</span>
                     </label>
-                    <div>
-                        <p-calendar placeholder="Select Start Date ... " formControlName="startDate"[dateFormat]="'dd/mm/yy'" />
-                    </div>
+                    <div class="relative max-w-sm">
+                        <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                          <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                          </svg>
+                        </div>
+                        <input datepicker id="default-datepicker" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                      </div>
                     <p class="error" *ngIf="appForm.get('startDate')?.invalid && appForm.get('startDate')?.touched">Please Enter The Start Date</p>
 
                 </div>
