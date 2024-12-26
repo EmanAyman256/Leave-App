@@ -85,10 +85,11 @@
                     </label>
                     <div class="relative max-w-sm">
                       <div>
+                        
                         <p-calendar formControlName="startDate" placeholder="Select Start Date ..." [dateFormat]="'dd/mm/yy'"/>
                     </div>
                       </div>
-                    <p class="error" *ngIf="appForm.get('startDate')?.invalid && appForm.get('startDate')?.touched">Please Enter The Start Date</p>
+                    <p class="error" *ngIf="appForm.get('startDate')?.invalid || appForm.get('startDate')?.touched || appForm.get('startDate')?.dirty">Please Enter The Start Date</p>
 
                 </div>
                 <div class="col-md-6">
@@ -99,7 +100,7 @@
                     <div>
                         <p-calendar formControlName="endDate" placeholder="Select Due Date ..." [dateFormat]="'dd/mm/yy'"/>
                     </div>
-                    <p class="error" *ngIf="appForm.get('endDate')?.invalid && appForm.get('endDate')?.touched ">Please Enter The End Date</p>
+                    <p class="error" *ngIf="appForm.get('endDate')?.invalid || appForm.get('endDate')?.touched || appForm.get('endDate')?.dirty">Please Enter The End Date</p>
 
                 </div>
                 </div> 
