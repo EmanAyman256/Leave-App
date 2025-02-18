@@ -16,10 +16,8 @@ interface User {
   providers:[MessageService]
 })
 export class ActivityRequestFormComponent{
-  
-
- plusUser=faUserPlus
- myControl = new FormControl<string|User>('');
+plusUser=faUserPlus
+myControl = new FormControl<string|User>('');
 searchControl = new FormControl();
 selectedItem: any;
 Startvalue!:Date;
@@ -54,10 +52,6 @@ appForm=new FormGroup({
   notes:new FormControl('')
 })
 constructor(private messageService: MessageService, private api:APIService) {}
-addData() {
-
-
-}
 onSubmit()
 {
   if(this.appForm.valid)

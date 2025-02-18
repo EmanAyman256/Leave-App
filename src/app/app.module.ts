@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { environment } from './environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { SuccessSubmitComponent } from './success-submit/success-submit.component';
 
 
 
@@ -32,6 +33,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     AppComponent,
     ActivityRequestFormComponent,
     ActivityDesriptionComponent,
+    SuccessSubmitComponent,
   ],
   imports: [
     BrowserModule,
