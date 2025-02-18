@@ -4,6 +4,7 @@ import {faUserPlus} from '@fortawesome/free-solid-svg-icons'
 import { MessageService } from 'primeng/api';
 import { map, Observable, startWith } from 'rxjs';
 import { APIService } from '../services/api.service';
+import { Router } from '@angular/router';
 interface User {
   name: string;
   email: string;
@@ -51,7 +52,7 @@ appForm=new FormGroup({
   attachSickLeave:new FormControl(null),
   notes:new FormControl('')
 })
-constructor(private messageService: MessageService, private api:APIService) {}
+constructor(private messageService: MessageService, private api:APIService,private router:Router) {}
 onSubmit()
 {
   if(this.appForm.valid)
@@ -61,6 +62,7 @@ onSubmit()
     {
       console.log('Data added!')
       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Request is Sent Successfully' });
+       this.router.navigate(['/success'])
       this.appForm.reset()
 
     }
