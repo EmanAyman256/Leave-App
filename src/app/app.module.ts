@@ -20,6 +20,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToastModule } from 'primeng/toast';
 import { ActivityDesriptionComponent } from './activity-desription/activity-desription.component';
+import { HttpClientModule } from '@angular/common/http';
+import { environment } from './environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 
 
@@ -50,6 +54,9 @@ import { ActivityDesriptionComponent } from './activity-desription/activity-desr
     MatAutocompleteModule,
     MatInputModule,
     MatChipsModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase), // Initialize Firebase
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

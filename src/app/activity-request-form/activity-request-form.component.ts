@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import {faUserPlus} from '@fortawesome/free-solid-svg-icons'
 import { MessageService } from 'primeng/api';
 import { map, Observable, startWith } from 'rxjs';
+import { APIService } from '../services/api.service';
 interface User {
   name: string;
   email: string;
@@ -15,6 +16,8 @@ interface User {
   providers:[MessageService]
 })
 export class ActivityRequestFormComponent{
+  
+
  plusUser=faUserPlus
  myControl = new FormControl<string|User>('');
 searchControl = new FormControl();
@@ -39,6 +42,7 @@ activities:string[]=
 appForm=new FormGroup({
   fullName:new FormControl('',[Validators.required]),
   reqBy:new FormControl('',[Validators.required]),
+  email:new FormControl('',[Validators.required]),
   activityType:new FormControl('',[Validators.required]),
   duration:new FormControl('',[Validators.required]),
   startDate:new FormControl( Date,[Validators.required]),
@@ -49,14 +53,25 @@ appForm=new FormGroup({
   attachSickLeave:new FormControl(null),
   notes:new FormControl('')
 })
-constructor(private messageService: MessageService) {}
+constructor(private messageService: MessageService, private api:APIService) {}
+addData() {
 
+
+}
 onSubmit()
 {
   if(this.appForm.valid)
   {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Request is Sent Successfully' });
-    this.appForm.reset()
+    this.api.addData(this.appForm.value)
+    .then(() => 
+    {
+      console.log('Data added!')
+      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Request is Sent Successfully' });
+      this.appForm.reset()
+
+    }
+    )
+    .catch((error) => console.error('Error: ', error));
   }
   else
   {
